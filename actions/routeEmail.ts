@@ -41,7 +41,5 @@ if (isVerified ) {  info = await transporter.sendMail({
       console.error('Something Went Wrong', error);
       return;
     }
-   
-
-    return info;
+       return info;
   }
