@@ -11,7 +11,6 @@ export const showOrders = async () => {
 };
 
 export const addOrder = async (order: Order) => {
-  console.log(order);
   const client = await createSSRClient();
   const { data, error } = await client
     .from("orders")

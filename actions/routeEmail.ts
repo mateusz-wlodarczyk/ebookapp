@@ -26,20 +26,22 @@ export async function sendMail({
     text: string;
     html?: string;
   }) {
-
+let info;
     try {
       const isVerified = await transporter.verify();
+if (isVerified ) {  info = await transporter.sendMail({
+  from: 'nextapp@o2.pl',
+  to: sendTo,
+  subject: subject,
+  text: text,
+  html: html ? html : '',
+});}
+
     } catch (error) {
       console.error('Something Went Wrong', error);
       return;
     }
-    const info = await transporter.sendMail({
-      from: 'nextapp@o2.pl',
-      to: sendTo,
-      subject: subject,
-      text: text,
-      html: html ? html : '',
-    });
+   
 
     return info;
   }
